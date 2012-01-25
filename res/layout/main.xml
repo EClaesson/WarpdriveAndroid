@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" android:background="@color/color_lightgray">
+
+    <ImageView
+        android:id="@+id/warplogo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/warplogo" android:background="@drawable/warplogo_bg" android:contentDescription="@string/str_warpdrive"/>
+
+    <ListView
+        android:id="@+id/mainMenuList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

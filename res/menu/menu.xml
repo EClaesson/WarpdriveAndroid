@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/mainMenuItem" android:title="Huvudmeny" android:titleCondensed="Huvudmeny" android:icon="@drawable/ic_menu_home" android:enabled="true"></item>
+    <item android:id="@+id/updateItem" android:enabled="true" android:title="Ladda Om" android:titleCondensed="Ladda Om" android:icon="@drawable/ic_menu_refresh"></item>
+    <item android:id="@+id/backItem" android:title="Bakåt" android:titleCondensed="Bakåt" android:icon="@drawable/ic_menu_back" android:enabled="false"></item>
+    <item android:id="@+id/forwardItem" android:title="Framåt" android:titleCondensed="Framåt" android:icon="@drawable/ic_menu_forward" android:enabled="false"></item>
+    
+    
+
+</menu>
