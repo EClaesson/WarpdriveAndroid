@@ -30,8 +30,8 @@ public class UrlBuilder {
 	}
 	
 	// Whether or not the current page/category has more pages
-	public static boolean hasMore(int index) {
-		return (index == 0 || index == 1);
+	public static boolean hasMore(int index, int count) {
+		return (index == 0 || index == 1) && count == 25;
 	}
 	
 	// Whether or not the current page is random. (More pages, but no particular order)

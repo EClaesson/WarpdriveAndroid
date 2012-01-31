@@ -1,7 +1,6 @@
 package net.radspark.android.warpdrive;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Quote implements Serializable {
@@ -11,15 +10,15 @@ public class Quote implements Serializable {
 	private int id;
 	private int grade;
 	private int favorites;
-	private ArrayList<QuoteComment> comments = new ArrayList<QuoteComment>();
+	private int commentCount;
 	private String text;
 	private String footnote;
 	
-	public Quote(int id, int grade, int favorites, ArrayList<QuoteComment> comments, String text, String footnote) {
+	public Quote(int id, int grade, int favorites, int commentCount, String text, String footnote) {
 		this.id = id;
 		this.grade = grade;
 		this.favorites = favorites;
-		this.comments = comments;
+		this.commentCount = commentCount;
 		this.text = text;
 		this.footnote = footnote;
 	}
@@ -36,16 +35,16 @@ public class Quote implements Serializable {
 		return this.grade;
 	}
 	
+	public String getGradeString() {
+		return ("[" + this.grade + "]");
+	}
+	
 	public int getFavorites() {
 		return this.favorites;
 	}
 	
-	public ArrayList<QuoteComment> getComments() {
-		return this.comments;
-	}
-	
 	public int getCommentCount() {
-		return this.comments.size();
+		return this.commentCount;
 	}
 	
 	public String getText() {
@@ -54,6 +53,11 @@ public class Quote implements Serializable {
 	
 	public String getFootnote() {
 		return this.footnote;
+	}
+	
+	public ArrayList<QuoteComment> grabAndProcessComments() {
+		//TODO: Implement =)
+		return null;
 	}
 	
 }

@@ -5,10 +5,52 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/quoteId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:textSize="12dp" android:textStyle="bold" android:layout_marginLeft="2dp" android:layout_marginTop="7dp"/>
+    <LinearLayout
+        android:id="@+id/quoteTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/quoteId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="7dp"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/quoteGrade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="7dp"
+            android:textSize="12dp"/>
+
+        <ImageView
+            android:id="@+id/quoteFavStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fav_star" android:layout_marginTop="11dp" android:layout_marginLeft="50dp" android:contentDescription="@string/str_star"/>
+
+        <TextView
+            android:id="@+id/quoteFavorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp" android:layout_marginTop="7dp" android:textSize="12dp"/>
+
+        <ImageView
+            android:id="@+id/quoteCommentBubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/comments" android:layout_marginTop="12dp" android:layout_marginLeft="50dp" android:contentDescription="@string/str_bubble"/>
+
+        <TextView
+            android:id="@+id/quoteComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="12dp" android:layout_marginTop="7dp" android:layout_marginLeft="3dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/quoteText"
@@ -24,6 +66,6 @@
         android:id="@+id/quoteFootnote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="9dp" android:textStyle="italic" android:layout_marginBottom="7dp" android:layout_marginLeft="2dp"/>
+        android:textSize="9dp" android:textStyle="italic" android:layout_marginBottom="7dp" android:layout_marginLeft="4dp"/>
 
 </LinearLayout>

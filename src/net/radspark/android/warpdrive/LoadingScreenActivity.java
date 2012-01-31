@@ -61,12 +61,34 @@ public class LoadingScreenActivity extends Activity {
 			Document doc = Jsoup.connect(UrlBuilder.getFinalUrl(pos, page)).get();
 			
 			Log.d("Warpdrive", "Selecting...");
-			Elements quotes = doc.select("div p tt");
+			Elements quotes = doc.select("#main div");
 			
 			Log.d("Warpdrive", "Iterating elements...");
+			
+			int processed = 0;
 			for(Element elem : quotes) {
-				//quoteText.add(Html.fromHtml(elem.html()).toString());
-				quoteList.add(new Quote(0, 0, 0, new ArrayList<QuoteComment>(), Html.fromHtml(elem.html()).toString(), "Fotnot"));
+				if(processed > 0 && processed <= 25) {
+					Element para = elem.child(0);
+					
+					Element footPara = null;
+					try {
+						footPara = elem.child(1);
+					} catch(Exception e) {
+					}
+					
+					quoteList.add(new Quote(
+							Integer.parseInt(elem.id().substring(2)),
+							Integer.parseInt(para.child(2).html().replaceAll("<.*?>.*?<\\/.*?>", "").trim()),
+							Integer.parseInt(para.child(3).html().replaceAll("<.*?>", "").trim()),
+							Integer.parseInt(para.child(4).child(0).html().replaceAll("<.*?>", "").trim()),
+							Html.fromHtml(para.select("tt").get(0).html()).toString(),
+							footPara == null ? "" : Html.fromHtml("Fotnot: " + footPara.child(0).html().replaceAll("<.*?>.*?<\\/.*?>", "").trim() + " ").toString()
+						));
+				}
+				
+				processed++;
+				
+				extras.putInt("count", processed - 2);
 			}
 			Log.d("Warpdrive", "Done!");
 		} catch (IOException e) {

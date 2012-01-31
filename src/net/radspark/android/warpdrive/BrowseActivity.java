@@ -11,20 +11,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class BrowseActivity extends Activity {
 
     private int pos, page;
     private ArrayList<Quote> quotes;
+    private int count;
     
     // Grabs quotes for a certain page
     private void getPage(int pos, int newPage, ArrayList<Quote> quotes) {
     	this.quotes = quotes;
     	
     	try {
-	    	if(newPage > 0 && UrlBuilder.hasMore(pos)) {
+	    	if(newPage > 0 && UrlBuilder.hasMore(pos, count)) {
 	    		((MenuItem)findViewById(R.id.backItem)).setEnabled(true);
 	    	} else {
 	    		((MenuItem)findViewById(R.id.backItem)).setEnabled(false);
@@ -34,7 +34,7 @@ public class BrowseActivity extends Activity {
     	}
     	
     	try {
-	    	if(UrlBuilder.hasMore(pos)) {
+	    	if(UrlBuilder.hasMore(pos, count)) {
 	    		((MenuItem)findViewById(R.id.forwardItem)).setEnabled(true);
 	    	} else {
 	    		((MenuItem)findViewById(R.id.forwardItem)).setEnabled(false);
@@ -43,7 +43,7 @@ public class BrowseActivity extends Activity {
     		
     	}
     		
-    	if(UrlBuilder.hasMore(pos)) {
+    	if(UrlBuilder.hasMore(pos, count)) {
     		setTitle("Warpdrive - " + UrlBuilder.getChoiseFromIndex(pos) + " (Sida " + Integer.toString(newPage + 1) + ")");
     	} else {
     		setTitle("Warpdrive - " + UrlBuilder.getChoiseFromIndex(pos));
@@ -78,8 +78,8 @@ public class BrowseActivity extends Activity {
     
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-    	menu.getItem(2).setEnabled((page > 0) && UrlBuilder.hasMore(pos));
-        menu.getItem(3).setEnabled(UrlBuilder.hasMore(pos));
+    	menu.getItem(2).setEnabled((page > 0) && UrlBuilder.hasMore(pos, count));
+        menu.getItem(3).setEnabled(UrlBuilder.hasMore(pos, count));
     	return true;
     }
     
@@ -110,18 +110,19 @@ public class BrowseActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse);
         
-        pos  = getIntent().getExtras().getInt("pos");
-        page = getIntent().getExtras().getInt("page");
+        pos   = getIntent().getExtras().getInt("pos");
+        page  = getIntent().getExtras().getInt("page");
+        count = getIntent().getExtras().getInt("count");
         
         getPage(pos, page, (ArrayList<Quote>)getIntent().getExtras().getSerializable("quotes"));
         
         ListView quoteList = (ListView)findViewById(R.id.browseList);
         quoteList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int cPos, long id) {
-				if(cPos == 0 && UrlBuilder.hasMore(pos)) {
+				if(cPos == 0 && UrlBuilder.hasMore(pos, count)) {
 					page -= 1;
 					loadNewPage(pos, page);
-				} else if(cPos == 25 && (UrlBuilder.hasMore(pos) || UrlBuilder.isRandom(pos))) {
+				} else if(cPos == 25 && (UrlBuilder.hasMore(pos, count) || UrlBuilder.isRandom(pos))) {
 					page += 1;
 					loadNewPage(pos, page);
 				}

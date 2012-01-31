@@ -14,28 +14,36 @@ public final class R {
         public static final int color_lightgray=0x7f050000;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_menu_back=0x7f020001;
-        public static final int ic_menu_forward=0x7f020002;
-        public static final int ic_menu_home=0x7f020003;
-        public static final int ic_menu_refresh=0x7f020004;
-        public static final int warplogo=0x7f020005;
-        public static final int warplogo_bg=0x7f020006;
+        public static final int comments=0x7f020000;
+        public static final int fav_star=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int ic_menu_back=0x7f020003;
+        public static final int ic_menu_forward=0x7f020004;
+        public static final int ic_menu_home=0x7f020005;
+        public static final int ic_menu_refresh=0x7f020006;
+        public static final int warplogo=0x7f020007;
+        public static final int warplogo_bg=0x7f020008;
     }
     public static final class id {
-        public static final int backItem=0x7f07000b;
+        public static final int backItem=0x7f070011;
         public static final int browseList=0x7f070000;
-        public static final int forwardItem=0x7f07000c;
+        public static final int forwardItem=0x7f070012;
         public static final int mainLayout=0x7f070001;
-        public static final int mainMenuItem=0x7f070009;
-        public static final int mainMenuList=0x7f070008;
-        public static final int progressBar1=0x7f070005;
-        public static final int quoteFootnote=0x7f070004;
-        public static final int quoteId=0x7f070002;
-        public static final int quoteText=0x7f070003;
-        public static final int textView1=0x7f070006;
-        public static final int updateItem=0x7f07000a;
-        public static final int warplogo=0x7f070007;
+        public static final int mainMenuItem=0x7f07000f;
+        public static final int mainMenuList=0x7f07000e;
+        public static final int progressBar1=0x7f07000b;
+        public static final int quoteCommentBubble=0x7f070007;
+        public static final int quoteComments=0x7f070008;
+        public static final int quoteFavStar=0x7f070005;
+        public static final int quoteFavorites=0x7f070006;
+        public static final int quoteFootnote=0x7f07000a;
+        public static final int quoteGrade=0x7f070004;
+        public static final int quoteId=0x7f070003;
+        public static final int quoteText=0x7f070009;
+        public static final int quoteTopBar=0x7f070002;
+        public static final int textView1=0x7f07000c;
+        public static final int updateItem=0x7f070010;
+        public static final int warplogo=0x7f07000d;
     }
     public static final class layout {
         public static final int browse=0x7f030000;
@@ -47,10 +55,11 @@ public final class R {
         public static final int menu=0x7f060000;
     }
     public static final class string {
-        public static final int app_desc=0x7f040002;
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
-        public static final int str_loading=0x7f040003;
-        public static final int str_warpdrive=0x7f040004;
+        public static final int app_desc=0x7f040001;
+        public static final int app_name=0x7f040000;
+        public static final int str_bubble=0x7f040005;
+        public static final int str_loading=0x7f040002;
+        public static final int str_star=0x7f040004;
+        public static final int str_warpdrive=0x7f040003;
     }
 }

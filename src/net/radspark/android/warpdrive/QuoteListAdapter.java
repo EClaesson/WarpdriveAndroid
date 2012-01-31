@@ -36,6 +36,9 @@ public class QuoteListAdapter extends ArrayAdapter<Quote> {
 		}
 		
 		((TextView)mainLayout.findViewById(R.id.quoteId)).setText(quote.getIdString());
+		((TextView)mainLayout.findViewById(R.id.quoteGrade)).setText(quote.getGradeString());
+		((TextView)mainLayout.findViewById(R.id.quoteFavorites)).setText("" + quote.getFavorites());
+		((TextView)mainLayout.findViewById(R.id.quoteComments)).setText("" + quote.getCommentCount());
 		((TextView)mainLayout.findViewById(R.id.quoteText)).setText(quote.getText());
 		((TextView)mainLayout.findViewById(R.id.quoteFootnote)).setText(quote.getFootnote());
 		
