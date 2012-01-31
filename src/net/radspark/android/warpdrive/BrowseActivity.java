@@ -63,6 +63,20 @@ public class BrowseActivity extends Activity {
         quoteList.invalidate();
     }
     
+    public void loadNewPage(int pos, int page) {
+    	Intent browseIntent = new Intent(this, LoadingScreenActivity.class);
+    	// Numerical position of the chosen menu item
+		browseIntent.putExtra("pos", pos);
+		
+		// Page to start the browsing at (page - 1)
+		browseIntent.putExtra("page", page);
+		
+		// Tell the loader which class to load
+		browseIntent.putExtra("class", "net.radspark.android.warpdrive.BrowseActivity");
+		
+		startActivity(browseIntent);
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -84,18 +98,15 @@ public class BrowseActivity extends Activity {
     		startActivity(new Intent(this, WarpdriveMainActivity.class));
             return true;
         } else if(item.getTitle().equals("Ladda Om")) {
-        	//getPage(pos, page);
-        	//TODO
+        	loadNewPage(pos, page);
         	return true;
         } else if(item.getTitle().equals("Bakåt")) {
         	page -= 1;
-			//TODO
-        	//getPage(pos, page);
+			loadNewPage(pos, page);
             return true;
         } else if(item.getTitle().equals("Framåt")) {
         	page += 1;
-			//TODO
-        	//getPage(pos, page);
+        	loadNewPage(pos, page);
 			return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -118,12 +129,10 @@ public class BrowseActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int cPos, long id) {
 				if(cPos == 0 && UrlBuilder.hasMore(pos)) {
 					page -= 1;
-					//getPage(pos, page);
-					//TODO
+					loadNewPage(pos, page);
 				} else if(cPos == 25 && (UrlBuilder.hasMore(pos) || UrlBuilder.isRandom(pos))) {
 					page += 1;
-					//TODO
-					//getPage(pos, page);
+					loadNewPage(pos, page);
 				}
 			}
         });

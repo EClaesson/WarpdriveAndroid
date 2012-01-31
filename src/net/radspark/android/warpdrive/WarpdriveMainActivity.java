@@ -30,12 +30,15 @@ public class WarpdriveMainActivity extends Activity {
     
     // Launches a BrowseActivity with the chosen url/page
     private void launchQuoteBrowser(int pos) {
-    	Intent browseIntent = new Intent(this, BrowseActivity.class);
+    	Intent browseIntent = new Intent(this, LoadingScreenActivity.class);
     	// Numerical position of the chosen menu item
 		browseIntent.putExtra("pos", pos);
 		
 		// Page to start the browsing at (page - 1)
 		browseIntent.putExtra("page", 0);
+		
+		// Tell the loader which class to load
+		browseIntent.putExtra("class", "net.radspark.android.warpdrive.BrowseActivity");
 		
 		startActivity(browseIntent);
     }

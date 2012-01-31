@@ -5,7 +5,7 @@
     <string name="app_name">Warpdrive</string>
     <string name="app_desc">Warpdrive.se direkt i mobilen.</string>
     <color name="color_lightgray">#F5F5F5</color>
-    <string name="str_loading">Laddar&amp;#8230;</string>
+    <string name="str_loading">Laddar</string>
     <string name="str_warpdrive">Warpdrive.se</string>
 
 </resources>
