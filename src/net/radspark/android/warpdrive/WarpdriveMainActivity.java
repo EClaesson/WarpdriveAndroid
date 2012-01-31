@@ -11,15 +11,16 @@ import android.view.View;
 
 public class WarpdriveMainActivity extends Activity {
 	
-	private final String[] choises = new String[] {"Senaste", "Bläddra", "Slumpa <0", "Slumpa", "Slumpa >0", "Topp", "Botten", "Bubblare", "Skräp"};
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        // Populate the list
         ListView mainMenuList = (ListView)this.findViewById(R.id.mainMenuList);
-        mainMenuList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, choises));
+        mainMenuList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, UrlBuilder.getChoiceList()));
+        
+        // Add an onClick listener that launches a BrowseActivity
         mainMenuList.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
         		launchQuoteBrowser(pos);
@@ -27,10 +28,15 @@ public class WarpdriveMainActivity extends Activity {
         });
     }
     
+    // Launches a BrowseActivity with the chosen url/page
     private void launchQuoteBrowser(int pos) {
     	Intent browseIntent = new Intent(this, BrowseActivity.class);
+    	// Numerical position of the chosen menu item
 		browseIntent.putExtra("pos", pos);
+		
+		// Page to start the browsing at (page - 1)
 		browseIntent.putExtra("page", 0);
+		
 		startActivity(browseIntent);
     }
     
