@@ -23,15 +23,19 @@ public final class R {
         public static final int warplogo_bg=0x7f020006;
     }
     public static final class id {
-        public static final int backItem=0x7f070007;
+        public static final int backItem=0x7f07000b;
         public static final int browseList=0x7f070000;
-        public static final int forwardItem=0x7f070008;
-        public static final int mainMenuItem=0x7f070005;
-        public static final int mainMenuList=0x7f070004;
-        public static final int progressBar1=0x7f070001;
-        public static final int textView1=0x7f070002;
-        public static final int updateItem=0x7f070006;
-        public static final int warplogo=0x7f070003;
+        public static final int forwardItem=0x7f07000c;
+        public static final int mainLayout=0x7f070001;
+        public static final int mainMenuItem=0x7f070009;
+        public static final int mainMenuList=0x7f070008;
+        public static final int progressBar1=0x7f070005;
+        public static final int quoteFootnote=0x7f070004;
+        public static final int quoteId=0x7f070002;
+        public static final int quoteText=0x7f070003;
+        public static final int textView1=0x7f070006;
+        public static final int updateItem=0x7f07000a;
+        public static final int warplogo=0x7f070007;
     }
     public static final class layout {
         public static final int browse=0x7f030000;

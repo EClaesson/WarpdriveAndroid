@@ -27,6 +27,8 @@ public class LoadingScreenActivity extends Activity {
         className = getIntent().getExtras().getString("class");
         extras = getIntent().getExtras();
         
+        setTitle("Warpdrive - Laddar");
+        
         Thread workerThread = new Thread() {
         	@Override
         	public void run() {
@@ -64,7 +66,7 @@ public class LoadingScreenActivity extends Activity {
 			Log.d("Warpdrive", "Iterating elements...");
 			for(Element elem : quotes) {
 				//quoteText.add(Html.fromHtml(elem.html()).toString());
-				quoteList.add(new Quote(0, 0, 0, new ArrayList<QuoteComment>(), Html.fromHtml(elem.html()).toString()));
+				quoteList.add(new Quote(0, 0, 0, new ArrayList<QuoteComment>(), Html.fromHtml(elem.html()).toString(), "Fotnot"));
 			}
 			Log.d("Warpdrive", "Done!");
 		} catch (IOException e) {

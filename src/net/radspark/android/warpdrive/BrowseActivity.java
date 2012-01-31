@@ -17,14 +17,14 @@ import android.widget.ListView;
 public class BrowseActivity extends Activity {
 
     private int pos, page;
+    private ArrayList<Quote> quotes;
     
     // Grabs quotes for a certain page
     private void getPage(int pos, int newPage, ArrayList<Quote> quotes) {
-    	ArrayList<String> quoteText = new ArrayList<String>();
+    	this.quotes = quotes;
     	
     	try {
 	    	if(newPage > 0 && UrlBuilder.hasMore(pos)) {
-	    		quoteText.add("<< Bakåt");
 	    		((MenuItem)findViewById(R.id.backItem)).setEnabled(true);
 	    	} else {
 	    		((MenuItem)findViewById(R.id.backItem)).setEnabled(false);
@@ -33,20 +33,11 @@ public class BrowseActivity extends Activity {
     		
     	}
     	
-    	for(Quote quote : quotes) {
-    		quoteText.add(quote.getText());
-    	}
-    	
     	try {
 	    	if(UrlBuilder.hasMore(pos)) {
-	    		quoteText.add("Framåt >>");
 	    		((MenuItem)findViewById(R.id.forwardItem)).setEnabled(true);
 	    	} else {
 	    		((MenuItem)findViewById(R.id.forwardItem)).setEnabled(false);
-	    		
-	    		if(UrlBuilder.isRandom(pos)) { 
-	    			quoteText.add("Slumpa Fler >>");
-	    		}
 	    	}
     	} catch(Exception e) {
     		
@@ -59,7 +50,7 @@ public class BrowseActivity extends Activity {
     	}
     	
     	ListView quoteList = (ListView)findViewById(R.id.browseList);
-        quoteList.setAdapter(new ArrayAdapter<String>(this, R.layout.listitem, (String[])quoteText.toArray(new String[0])));
+        quoteList.setAdapter(new QuoteListAdapter(this, R.layout.listitem, this.quotes));
         quoteList.invalidate();
     }
     
