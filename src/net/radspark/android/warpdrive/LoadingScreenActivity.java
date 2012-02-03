@@ -78,9 +78,9 @@ public class LoadingScreenActivity extends Activity {
 					
 					quoteList.add(new Quote(
 							Integer.parseInt(elem.id().substring(2)),
-							Integer.parseInt(para.child(2).html().replaceAll("<.*?>.*?<\\/.*?>", "").trim()),
-							Integer.parseInt(para.child(3).html().replaceAll("<.*?>", "").trim()),
-							Integer.parseInt(para.child(4).child(0).html().replaceAll("<.*?>", "").trim()),
+							Integer.parseInt(pos == 8 ? "0" : para.child(2).html().replaceAll("<.*?>.*?<\\/.*?>", "").trim()),
+							Integer.parseInt(pos == 8 ? "0" : para.child(3).html().replaceAll("<.*?>", "").trim()),
+							Integer.parseInt(pos == 8 ? "0" : para.child(4).child(0).html().replaceAll("<.*?>", "").trim()),
 							Html.fromHtml(para.select("tt").get(0).html()).toString(),
 							footPara == null ? "" : Html.fromHtml("Fotnot: " + footPara.child(0).html().replaceAll("<.*?>.*?<\\/.*?>", "").trim() + " ").toString()
 						));
