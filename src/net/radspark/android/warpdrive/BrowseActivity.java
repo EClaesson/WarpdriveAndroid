@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,6 +19,20 @@ public class BrowseActivity extends Activity {
     private int pos, page;
     private ArrayList<Quote> quotes;
     private int count;
+    
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			if((UrlBuilder.hasMore(pos, 25) && page == 0) || !UrlBuilder.hasMore(pos, 25)) {
+				// Go to main menu
+				startActivity(new Intent(this, WarpdriveMainActivity.class));
+			} else {
+				loadNewPage(pos, page - 1);
+			}
+		}
+		
+		return super.onKeyDown(keyCode, event);
+	}
     
     // Grabs quotes for a certain page
     private void getPage(int pos, int newPage, ArrayList<Quote> quotes) {
