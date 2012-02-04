@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class BrowseActivity extends Activity {
 
@@ -136,9 +135,7 @@ public class BrowseActivity extends Activity {
         ListView quoteList = (ListView)findViewById(R.id.browseList);
         quoteList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int cPos, long id) {
-				String quoteId = ((TextView)view.findViewById(R.id.quoteId)).getText().toString().substring(1);
 				Intent quoteActivity = new Intent(getBaseContext(), ViewSingleQuoteActivity.class);
-				quoteActivity.putExtra("id", quoteId);
 				quoteActivity.putExtra("quote", quotes.get(cPos));
 				startActivity(quoteActivity);
 			}

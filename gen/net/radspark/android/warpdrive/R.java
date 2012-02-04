@@ -25,13 +25,15 @@ public final class R {
         public static final int warplogo_bg=0x7f020008;
     }
     public static final class id {
-        public static final int backItem=0x7f070011;
+        public static final int backItem=0x7f070015;
         public static final int browseList=0x7f070000;
-        public static final int forwardItem=0x7f070012;
+        public static final int commentList=0x7f070012;
+        public static final int forwardItem=0x7f070016;
         public static final int mainLayout=0x7f070001;
-        public static final int mainMenuItem=0x7f07000f;
+        public static final int mainMenuItem=0x7f070013;
         public static final int mainMenuList=0x7f07000e;
         public static final int progressBar1=0x7f07000b;
+        public static final int publishText=0x7f070010;
         public static final int quoteCommentBubble=0x7f070007;
         public static final int quoteComments=0x7f070008;
         public static final int quoteFavStar=0x7f070005;
@@ -41,15 +43,19 @@ public final class R {
         public static final int quoteId=0x7f070003;
         public static final int quoteText=0x7f070009;
         public static final int quoteTopBar=0x7f070002;
+        public static final int readersText=0x7f070011;
+        public static final int reportText=0x7f07000f;
         public static final int textView1=0x7f07000c;
-        public static final int updateItem=0x7f070010;
+        public static final int updateItem=0x7f070014;
         public static final int warplogo=0x7f07000d;
     }
     public static final class layout {
         public static final int browse=0x7f030000;
-        public static final int listitem=0x7f030001;
-        public static final int loadingscreen=0x7f030002;
-        public static final int main=0x7f030003;
+        public static final int commentitem=0x7f030001;
+        public static final int listitem=0x7f030002;
+        public static final int loadingscreen=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int single=0x7f030005;
     }
     public static final class menu {
         public static final int menu=0x7f060000;
