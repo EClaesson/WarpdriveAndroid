@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.widget.Toast;
 
 public class LoadingScreenActivity extends Activity {
 
@@ -37,6 +38,7 @@ public class LoadingScreenActivity extends Activity {
         			
         			extras.putSerializable("quotes", getQuotes(extras.getInt("pos"), extras.getInt("page")));
         		} catch(Exception e) {
+        			Toast.makeText(getBaseContext(), "Ett fel uppstod när citaten hämtades", Toast.LENGTH_LONG);
         			e.printStackTrace();
         		} finally {
         			try {
@@ -44,7 +46,8 @@ public class LoadingScreenActivity extends Activity {
 						newIntent.putExtras(extras);
 						startActivity(newIntent);
         			} catch (ClassNotFoundException e) {
-						e.printStackTrace();
+        				Toast.makeText(getBaseContext(), "Ett fel uppstod när citaten skulle visas", Toast.LENGTH_LONG);
+        				e.printStackTrace();
 					}
         		}
         	}
@@ -74,6 +77,7 @@ public class LoadingScreenActivity extends Activity {
 					try {
 						footPara = elem.child(1);
 					} catch(Exception e) {
+						// Dummy catch
 					}
 					
 					quoteList.add(new Quote(
@@ -92,7 +96,7 @@ public class LoadingScreenActivity extends Activity {
 			}
 			Log.d("Warpdrive", "Done!");
 		} catch (IOException e) {
-			//TODO: Launch ErrorActivity
+			Toast.makeText(getBaseContext(), "Ett nätverksfel uppstod när citaten skulle hämtas", Toast.LENGTH_LONG);
 			e.printStackTrace();
 		}
 		

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ViewSingleQuoteActivity extends Activity {
 	
@@ -34,7 +35,7 @@ public class ViewSingleQuoteActivity extends Activity {
 				}
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				Toast.makeText(getBaseContext(), "Ett fel uppstod när kommentarerna skulle hämtas", Toast.LENGTH_LONG);
 				e.printStackTrace();
 			}
 		} else {
@@ -67,7 +68,7 @@ public class ViewSingleQuoteActivity extends Activity {
 			
 			return new QuoteInfo(reportDate, reporter, publishDate, publisher, readers);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			Toast.makeText(getBaseContext(), "Ett fel uppstod när citatinfo skulle hämtas", Toast.LENGTH_LONG);
 			e.printStackTrace();
 		}	
 		
@@ -85,12 +86,16 @@ public class ViewSingleQuoteActivity extends Activity {
         
         setTitle("Warpdrive - " + quote.getIdString());
         
-        ((TextView)findViewById(R.id.reportText)).setText("Inskickat av " + info.getReporter() + " " + info.getReportDate());
-        ((TextView)findViewById(R.id.publishText)).setText("Godkändes av " + info.getPublisher() + " " + info.getPublishDate());
-        ((TextView)findViewById(R.id.readersText)).setText("Läst av " + info.getReaders() + " besökare");
-	
-        ListView commentList = (ListView)findViewById(R.id.commentList);
-        commentList.setAdapter(new CommentListAdapter(this, R.layout.commentitem, comments));
-        commentList.invalidate();
+        if(quote == null || comments == null || info == null) {
+        	Toast.makeText(getBaseContext(), "Ett fel uppstod när kommentarerna skulle visas", Toast.LENGTH_LONG);
+        } else {
+	        ((TextView)findViewById(R.id.reportText)).setText("Inskickat av " + info.getReporter() + " " + info.getReportDate());
+	        ((TextView)findViewById(R.id.publishText)).setText("Godkändes av " + info.getPublisher() + " " + info.getPublishDate());
+	        ((TextView)findViewById(R.id.readersText)).setText("Läst av " + info.getReaders() + " besökare");
+		
+	        ListView commentList = (ListView)findViewById(R.id.commentList);
+	        commentList.setAdapter(new CommentListAdapter(this, R.layout.commentitem, comments));
+	        commentList.invalidate();
+        }
 	}
 }

@@ -46,7 +46,7 @@ public class BrowseActivity extends Activity {
 	    		((MenuItem)findViewById(R.id.backItem)).setEnabled(false);
 	    	}
     	} catch(Exception e) {
-    		
+    		// Dummy catch
     	}
     	
     	try {
@@ -56,7 +56,7 @@ public class BrowseActivity extends Activity {
 	    		((MenuItem)findViewById(R.id.forwardItem)).setEnabled(false);
 	    	}
     	} catch(Exception e) {
-    		
+    		// Dummy catch
     	}
     		
     	if(UrlBuilder.hasMore(pos, count)) {
